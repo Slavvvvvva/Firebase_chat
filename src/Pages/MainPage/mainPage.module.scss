@@ -38,8 +38,11 @@
 }
 
 .chatlist{
+    display: flex;
     flex-grow: 1;
-    background-color:white
+    flex-direction: column;
+    align-items: center;
+    background-color:white;
 }
 
 .navigation{

@@ -1,0 +1,32 @@
+.chatItem{
+    width: 348px;
+    height: 106px;
+    display: flex;
+    margin-bottom: 23px;
+    text-decoration: none;
+    color: black;
+    &:first-child{
+        margin-top: 44px;
+    }
+    .icon{
+        width: 54px;
+        height: 54px;
+    }
+    .text_vrapper{
+        display: flex;
+        flex-direction: column;
+        margin-left: 25px;
+        margin-right: 25px;
+        overflow: hidden;
+        .name{
+            font-size: 18px;
+            margin-top: 5px;
+            margin-bottom: 16px;
+        }
+        .description{
+            font-size: 14px;
+            margin: 0;
+            color: #707070;
+        }
+    }
+}
