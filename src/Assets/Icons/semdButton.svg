@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+  <g id="semdButton" transform="translate(-15 -18)">
+    <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(15 18)" fill="#5479f1"/>
+    <g id="noun_Plus_2617572" transform="translate(29 32)">
+      <g id="Group" transform="translate(0.487 -0.496)">
+        <path id="Path" d="M5.97,0a.727.727,0,0,0-.652.782V6.191H.689a.644.644,0,0,0-.6.376.885.885,0,0,0,0,.791.644.644,0,0,0,.6.376H5.318v5.409a.724.724,0,0,0,.662.773.724.724,0,0,0,.662-.773V7.735h4.629a.644.644,0,0,0,.6-.376.885.885,0,0,0,0-.791.644.644,0,0,0-.6-.376H6.642V.782A.844.844,0,0,0,6.448.225.616.616,0,0,0,5.97,0Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

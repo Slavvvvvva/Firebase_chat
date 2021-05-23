@@ -42,6 +42,10 @@
 }
 
 .input_vrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100px;
-    background-color:bisque;
+    background-color:white;
 }
