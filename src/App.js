@@ -1,6 +1,7 @@
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import appStyle from './App.module.scss'
 import MainPage from './Pages/MainPage/MainPage'
+import ChatRoomPage from './Pages/ChatRoomPage/ChatRoomPage'
 
 const App = () => {
 
@@ -8,7 +9,7 @@ const App = () => {
     <HashRouter>
       <div className={appStyle.body}>
         <Switch>
-          <Route path='/chatroom/:chatRoomName' render={() => <h1> Selected chatroom page </h1>} />
+          <Route path='/chatroom/:chatRoomName' render={() => <ChatRoomPage/>} />
           <Route path='/login' render={() => <h1> Login page </h1>} />
           <Route path='/profile' render={() => <h1> Profile page </h1>} />
           <Route path='/create' render={() => <h1> Create new chatroom page </h1>} />
