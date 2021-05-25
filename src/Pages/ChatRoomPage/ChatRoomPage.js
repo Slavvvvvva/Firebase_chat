@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory, useParams } from 'react-router'
 import AutogrowTextarea from '../../components/AutogrowTextarea/AutogrowTextarea'
+import Message from '../../components/Messages/Message'
 import chatRoomStyle from './chat-room-page.module.scss'
 
 const ChatRoomPage = () => {
@@ -21,6 +22,14 @@ const ChatRoomPage = () => {
                 <p className = {chatRoomStyle.chat_description} >{chatRoomDescription}</p>
             </div>
             <div className = {chatRoomStyle.message_vrapper}>
+                <Message notYour = {true}/>
+                <Message notYour = {false}/>
+                <Message notYour = {true}/>
+                <Message notYour = {false}/>
+                <Message notYour = {true}/>
+                <Message notYour = {false}/>
+                <Message notYour = {true}/>
+                <Message notYour = {true}/>
             </div>
             <div className = {chatRoomStyle.input_vrapper}>
                 <AutogrowTextarea/>
