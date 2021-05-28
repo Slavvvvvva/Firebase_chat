@@ -1,8 +1,9 @@
 import {combineReducers, createStore, applyMiddleware,compose} from "redux"
 import persistReducer from "redux-persist/es/persistReducer"
 import persistStore from "redux-persist/es/persistStore"
-/* import thunkMiddleware from 'redux-thunk' */
+import thunkMiddleware from 'redux-thunk'
 import storage from 'redux-persist/lib/storage'
+import userReducer from "./user/user-reduser"
 
 const persistConfig = {
     key: 'root',
@@ -11,14 +12,12 @@ const persistConfig = {
 }
 
 const rootRedusers = combineReducers({
-    /* GlobalSettings: GlobalSettingsReduser,
-    Weather: WeatherReduser,
-    form: formReducer */
+    user: userReducer
 })
 
 const redusers = persistReducer(persistConfig, rootRedusers)
 
-const middleware =[/* thunkMiddleware */]
+const middleware =[thunkMiddleware]
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

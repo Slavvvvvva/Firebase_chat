@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import loginPageStyle from './login-page.module.scss'
 import FormInput from '../../components/FormInput/FormInput'
+import {asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser} from '../../Redux/user/user-actions'
+import { connect } from 'react-redux'
 
-const LoginPage = () => {
+
+const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) => {
 
     let [loginData, chaingeLoginData] = useState({
         email: '',
@@ -10,9 +13,10 @@ const LoginPage = () => {
     })
 
     const handleSubmitLogin = async e => {
+        debugger
         e.preventDefault()
         const { email, password } = loginData
-        /* EmailSignInStarts(email, password) */
+        asyncLoginAndSetCurrentUser(email, password) 
         chaingeLoginData({ email: '', password: '' })
     }
 
@@ -29,6 +33,7 @@ const LoginPage = () => {
     })
 
     const handleSubmit = async e => {
+        debugger
         e.preventDefault()
         console.log(signUpData)
         const { password, confirmPassword } = signUpData
@@ -37,7 +42,7 @@ const LoginPage = () => {
             alert('password dont match')
             return
         }
-        /* signUpSessionStarts(signUpData) */
+        asyncCeateAndSetCurrentUser(signUpData)
     }
 
     const handleChange = e => {
@@ -112,4 +117,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default connect(null,{asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser})(LoginPage)
