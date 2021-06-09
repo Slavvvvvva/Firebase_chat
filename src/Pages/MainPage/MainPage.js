@@ -1,11 +1,8 @@
 import React from 'react'
-import NavigationButton from '../../components/NavigationButton/NavigationButton'
 import mainPageStyle from './mainPage.module.scss'
-import chats from '../../Assets/Icons/chats.svg'
 import chatIcon from '../../Assets/Icons/chat.svg'
-import profile from '../../Assets/Icons/profile.svg'
-import settings from '../../Assets/Icons/settings.svg'
 import ChatRoomItem from '../../components/ChatRoomItem/ChatRoomItem'
+import Navigation from '../../components/Navigation/Navigation'
 
 const MainPage = () => {
 
@@ -59,23 +56,8 @@ const MainPage = () => {
                     patch = {3}
                 />
             </div>
-            <nav className = {mainPageStyle.navigation} >
-                <NavigationButton
-                patch ='/'
-                alt = 'Go to chatrooms page'
-                image = {chats} 
-                />
-                <NavigationButton
-                patch ='/profile'
-                alt = 'Go to your profile page'
-                image = {profile} 
-                />
-                <NavigationButton
-                patch ='/create'
-                alt = 'Go to create new chatroom'
-                image = {settings} 
-                />
-            </nav>
+            <Navigation/>
+            
         </>
     )
 }

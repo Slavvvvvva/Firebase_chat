@@ -8,8 +8,9 @@ import {asyncIsUserLogined, asyncLogOutUser} from './Redux/user/user-actions'
 import { useEffect } from 'react'
 import { createStructuredSelector } from 'reselect'
 import { selectCurrentUser } from './Redux/user/user-selector'
+import ProfilePage from './Pages/ProfilePage/ProfilePage'
 
-const App = ({asyncIsUserLogined, asyncLogOutUser, currentUser}) => {
+const App = ({asyncIsUserLogined, currentUser}) => {
 
   useEffect( () =>{
     asyncIsUserLogined()
@@ -21,7 +22,7 @@ const App = ({asyncIsUserLogined, asyncLogOutUser, currentUser}) => {
         <Switch>
           <Route path='/chatroom/:chatRoomName' render = {() => !currentUser ? (<Redirect to='/login' />) : (<ChatRoomPage/>)} />
           <Route path='/login' render = {() => currentUser ? (<Redirect to='/' />) : (<LoginPage/>)} />
-          <Route path='/profile' render = {() => !currentUser ? (<Redirect to='/login' />) : ( <> <h1> Profile page </h1> <button onClick = { () => asyncLogOutUser() }>LogOut</button> </> )} />
+          <Route path='/profile' render = {() => !currentUser ? (<Redirect to='/login' />) : ( <ProfilePage/> )} />
           <Route path='/create' render = {() => !currentUser ? (<Redirect to='/login' />) : (<h1> Create new chatroom page </h1>)} />
           <Route path='/' render = {() => !currentUser ? (<Redirect to='/login' />) : (<MainPage/>)} />
           <Route path='/*' render = {() => <h1> 404 page not found </h1>} />
@@ -35,4 +36,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 })
 
-export default connect(mapStateToProps, {asyncIsUserLogined, asyncLogOutUser})(App);
+export default connect(mapStateToProps, {asyncIsUserLogined})(App)

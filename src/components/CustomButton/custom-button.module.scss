@@ -1,0 +1,20 @@
+.button {
+    width: auto;
+    height: 40px;
+    padding: 0 20px 0 20px;
+    color: white;
+    background-color: #797D9E;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: 0.4s;
+    &:focus {
+        outline: none;
+        background-color: #565d9e;
+    }
+    &:hover {
+        background-color: #565d9e;
+    }
+    &:active {
+        transform: translate(0px, 5px);
+    }
+}       

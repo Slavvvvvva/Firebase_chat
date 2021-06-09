@@ -3,6 +3,7 @@ import loginPageStyle from './login-page.module.scss'
 import FormInput from '../../components/FormInput/FormInput'
 import {asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser} from '../../Redux/user/user-actions'
 import { connect } from 'react-redux'
+import CustomButton from '../../components/CustomButton/CustomButton'
 
 
 const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) => {
@@ -63,7 +64,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     type ='email'
                     value ={loginData.email}
                     handleChainge = {handleChaingeLogin}
-                    label ='email'
+                    placeHolder ='email'
                     required
                 />
                 <FormInput
@@ -71,12 +72,16 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     type ='password'
                     value = {loginData.password}
                     handleChainge = {handleChaingeLogin}
-                    label ='password'
+                    placeHolder ='password'
                     required
                 />
-                <button type ='submit' > Sign In </button>
+                <CustomButton 
+                    type = 'submit'
+                    disabled = {false}
+                > Sign In
+                </CustomButton>
             </form>
-            <form onSubmit={handleSubmit} className = {loginPageStyle.login_form}>
+            <form onSubmit={handleSubmit} className = {`${loginPageStyle.login_form} ${loginPageStyle.login_form_crete } `}>
                 <h2 className={loginPageStyle.title}>Or</h2>
                 <span className={loginPageStyle.description} > Create new acaunt with email and password </span>
                 <FormInput
@@ -84,7 +89,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='displayName'
                     value={displayName}
                     onChange={handleChange}
-                    label='Display Name'
+                    placeHolder='Display Name'
                     required
                 />
                 <FormInput
@@ -92,7 +97,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='email'
                     value={email}
                     onChange={handleChange}
-                    label='Email'
+                    placeHolder='Email'
                     required
                 />
                 <FormInput
@@ -100,7 +105,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='password'
                     value={password}
                     onChange={handleChange}
-                    label='Password'
+                    placeHolder='Password'
                     required
                 />
                 <FormInput
@@ -108,10 +113,14 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='confirmPassword'
                     value={confirmPassword}
                     onChange={handleChange}
-                    label='Confirm Password'
+                    placeHolder='Confirm Password'
                     required
                 />
-                <button type='submit'> Sign In </button>
+                <CustomButton 
+                    type = 'submit'
+                    disabled = {false}
+                > Sign In
+                </CustomButton>
             </form>
         </div>
     )

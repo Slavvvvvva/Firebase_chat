@@ -1,0 +1,14 @@
+.profile_vrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    /* background-color: grey; */
+    .user_info_vrapper{
+        display: flex;
+        .user_nickname{
+            
+        }
+    }
+}
