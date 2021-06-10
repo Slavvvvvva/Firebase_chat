@@ -29,4 +29,4 @@ const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser
   })
   
-  export default connect(mapStateToProps, {asyncLogOutUser})(ProfilePage)
+export default connect(mapStateToProps, {asyncLogOutUser})(ProfilePage)

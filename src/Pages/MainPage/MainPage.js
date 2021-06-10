@@ -19,42 +19,7 @@ const MainPage = () => {
                     chatDescription = 'exemple very long description 1 very long description 1 exemple very long description 1 exemple very long description 1 exemple very long description 1'
                     chatImg = {chatIcon}
                     patch = 'Exemple Name 1'
-                />
-                <ChatRoomItem
-                    chatName = 'Exemple Name 2'
-                    chatDescription = 'exemple very long description 2'
-                    chatImg = {chatIcon}
-                    patch = 'Exemple Name 2'
-                />
-                <ChatRoomItem
-                    chatName = 'Exemple Name 3'
-                    chatDescription = 'exemple very long description 3'
-                    chatImg = {chatIcon}
-                    patch = 'Exemple Name 3'
-                />
-                <ChatRoomItem
-                    chatName = 'Exemple Name 3'
-                    chatDescription = 'exemple very long description 3'
-                    chatImg = {chatIcon}
-                    patch = {3}
-                />
-                <ChatRoomItem
-                    chatName = 'Exemple Name 3'
-                    chatDescription = 'exemple very long description 3'
-                    chatImg = {chatIcon}
-                    patch = {3}
-                /><ChatRoomItem
-                    chatName = 'Exemple Name 3'
-                    chatDescription = 'exemple very long description 3'
-                    chatImg = {chatIcon}
-                    patch = {3}
-                />
-                <ChatRoomItem
-                    chatName = 'Exemple Name 3'
-                    chatDescription = 'exemple very long description 3'
-                    chatImg = {chatIcon}
-                    patch = {3}
-                />
+                />   
             </div>
             <Navigation/>
             

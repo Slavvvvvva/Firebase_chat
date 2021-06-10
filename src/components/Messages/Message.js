@@ -5,7 +5,7 @@ import yourMessageStyle from './message.module.scss'
 
 
 
-const Message = ({notYour, messageText}) => {
+const Message = ({notYour, children}) => {
     let cx = classNames.bind(yourMessageStyle)
 
     let messageVrapperClass = cx({
@@ -26,7 +26,7 @@ const Message = ({notYour, messageText}) => {
         <div className = {messageVrapperClass} >
             <UserIcon/>
             <div className = {textVrapperClass} >
-                <p className = {textClass}>{messageText}  hjh jh jhf jhfj hfj hfjfh jfhj f hj</p>
+                <p className = {textClass}>{children}</p>
             </div>
         </div>
     )

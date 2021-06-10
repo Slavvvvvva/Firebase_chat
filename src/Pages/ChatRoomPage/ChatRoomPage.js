@@ -3,13 +3,33 @@ import { useHistory, useParams } from 'react-router'
 import AutogrowTextarea from '../../components/AutogrowTextarea/AutogrowTextarea'
 import Message from '../../components/Messages/Message'
 import chatRoomStyle from './chat-room-page.module.scss'
+import {firestore} from '../../Firebase/firebase'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+import {selectCurrentUser} from '../../Redux/user/user-selector'
+import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux'
 
-const ChatRoomPage = () => {
+
+const ChatRoomPage = ({currentUser}) => {
 
     const {chatRoomName} = useParams()
     const history = useHistory()
     console.log(history)
     const chatRoomDescription = 'some  description'
+
+	const [messages, loading] = useCollectionData(
+		firestore.collection(`${chatRoomName}`).orderBy('createdAt')
+	)
+
+    console.log(messages)
+    if(loading) return (<p>Loading</p>)
+
+    const renderMeseges = messages.map( (mesItem, index) => {
+        return(
+            <Message notYour = {!(mesItem.uid === currentUser.uid )}>{mesItem.text}</Message>
+        )
+    })
+
 
     return (
         <>
@@ -22,14 +42,7 @@ const ChatRoomPage = () => {
                 <p className = {chatRoomStyle.chat_description} >{chatRoomDescription}</p>
             </div>
             <div className = {chatRoomStyle.message_vrapper}>
-                <Message notYour = {true}/>
-                <Message notYour = {false}/>
-                <Message notYour = {true}/>
-                <Message notYour = {false}/>
-                <Message notYour = {true}/>
-                <Message notYour = {false}/>
-                <Message notYour = {true}/>
-                <Message notYour = {true}/>
+                {renderMeseges}
             </div>
             <div className = {chatRoomStyle.input_vrapper}>
                 <AutogrowTextarea/>
@@ -38,4 +51,8 @@ const ChatRoomPage = () => {
     )
 }
 
-export default ChatRoomPage
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
+  })
+  
+export default connect(mapStateToProps, {})(ChatRoomPage)
