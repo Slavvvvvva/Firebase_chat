@@ -3,8 +3,10 @@
     flex-direction: row-reverse;
     align-items: flex-end;
     margin-bottom: 22px;
+    position: relative;
     .text_vrapper{
         display: flex;
+        flex-direction: row-reverse;
         width: 295px;
         margin-right: 7px;
         background-color: #5479F1;
@@ -18,11 +20,27 @@
             color: white;
         }
     }
+    .time{
+        position: absolute;
+        margin: 0;
+        font-size: 13px;
+        left: 25px;
+        bottom: 5px;
+    }
+    .name{
+        position: absolute;
+        margin: 0;
+        font-size: 13px;
+        right: 90px;
+        top: 5px;
+    }
 }
 
 .not_your_message_vrapper{
     flex-direction: row;
     .not_your_text_vrapper{
+        display: flex;
+        flex-direction: row;
         background-color: #F4F6FF;
         border-radius: 36px 36px 36px 0px;
         margin: 0;
@@ -30,6 +48,14 @@
         .not_your_text{
             color: black;
         }
+    }
+    .not_your_time{
+        left: initial ;
+        right: 25px;
+    }
+    .not_your_name{
+        right: initial ;
+        left: 90px;
     }
 
 }

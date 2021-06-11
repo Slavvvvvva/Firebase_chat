@@ -25,8 +25,14 @@ const ChatRoomPage = ({currentUser}) => {
     if(loading) return (<p>Loading</p>)
 
     const renderMeseges = messages.map( (mesItem, index) => {
+        
         return(
-            <Message notYour = {!(mesItem.uid === currentUser.uid )}>{mesItem.text}</Message>
+            <Message
+                notYour = {!(mesItem.uid === currentUser.uid )}
+                time ={mesItem.createdAt.toDate().toLocaleTimeString('it-IT')}
+            >
+                {mesItem.text}
+            </Message>
         )
     })
 

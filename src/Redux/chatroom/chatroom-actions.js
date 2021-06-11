@@ -1,4 +1,5 @@
 import { firestore } from "../../Firebase/firebase"
+import firebase from '../../Firebase/firebase'
 import { ChatroomAcitonTypes } from "./chatroom-action-types"
 
 export const setChatList = chatList => ({
@@ -36,5 +37,21 @@ export const asyncGetChatList = () => {
                 querySnapshot.forEach((doc) => list.push(doc.data()))
                 dispatch(setChatList(list))
             })                
+    }
+}
+
+export const asyncSendMesege = (chatRoomName, currentUser, textAreaValue ) => {
+    return (dispatch) => {
+        firestore.collection(`${chatRoomName}`).add({
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+            text: textAreaValue,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .catch( (error) => {
+            let {errorCode, errorMessage} = error
+                dispatch(setAsyncMessages(errorCode+''+errorMessage))
+        })
     }
 }

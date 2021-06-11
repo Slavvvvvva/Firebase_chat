@@ -5,7 +5,8 @@ import yourMessageStyle from './message.module.scss'
 
 
 
-const Message = ({notYour, children}) => {
+const Message = ({notYour, children, time}) => {
+
     let cx = classNames.bind(yourMessageStyle)
 
     let messageVrapperClass = cx({
@@ -20,14 +21,24 @@ const Message = ({notYour, children}) => {
         text: true,
         not_your_text: notYour
     })
+    let timeClass = cx({
+        time: true,
+        not_your_time: notYour
+    })
+    let nameClass = cx({
+        name: true,
+        not_your_name: notYour
+    })
 
-
+    let name = 'Super nick name'
     return(
         <div className = {messageVrapperClass} >
             <UserIcon/>
             <div className = {textVrapperClass} >
                 <p className = {textClass}>{children}</p>
             </div>
+            <p className = {timeClass}>{time}</p>
+            <p className = {nameClass}>{name}</p>
         </div>
     )
 }
