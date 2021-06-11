@@ -4,6 +4,7 @@ import persistStore from "redux-persist/es/persistStore"
 import thunkMiddleware from 'redux-thunk'
 import storage from 'redux-persist/lib/storage'
 import userReducer from "./user/user-reduser"
+import chatReducer from "./chatroom/chatoom-reduser"
 
 const persistConfig = {
     key: 'root',
@@ -12,7 +13,8 @@ const persistConfig = {
 }
 
 const rootRedusers = combineReducers({
-    user: userReducer
+    user: userReducer,
+    chat: chatReducer,
 })
 
 const redusers = persistReducer(persistConfig, rootRedusers)

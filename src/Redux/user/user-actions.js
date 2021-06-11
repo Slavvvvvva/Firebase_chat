@@ -1,5 +1,5 @@
 import {UserAcitonTypes} from './user-action-types'
-import firebase, { getCurrentUser } from '../../Firebase/firebase'
+import firebase from '../../Firebase/firebase'
 import 'firebase/auth'
 
 export const setCurrentUser = user => ({

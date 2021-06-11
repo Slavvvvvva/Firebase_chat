@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import mainPageStyle from './mainPage.module.scss'
 import chatIcon from '../../Assets/Icons/chat.svg'
 import ChatRoomItem from '../../components/ChatRoomItem/ChatRoomItem'
 import Navigation from '../../components/Navigation/Navigation'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { selectChatList } from '../../Redux/chatroom/chatroom-selectors'
+import {asyncGetChatList} from '../../Redux/chatroom/chatroom-actions'
 
-const MainPage = () => {
 
+const MainPage = ({chatList, asyncGetChatList }) => {
+
+    useEffect( () => {
+        asyncGetChatList()
+    },[asyncGetChatList])
+
+    if (!chatList) return <p>loading</p>
+
+    const renderChatList = chatList.map( (chat) => {
+        return(
+            <ChatRoomItem
+                    chatName = {chat.name}
+                    chatDescription = {chat.description}
+                    chatImg = {chat.imageUrl||chatIcon}
+                    patch = {chat.name}
+            />    
+        )
+    })
 
     return (
         <>
@@ -14,12 +35,7 @@ const MainPage = () => {
                 <input type = 'search' placeholder = 'Search'></input>
             </div>
             <div className = {mainPageStyle.chatlist} >
-                <ChatRoomItem
-                    chatName = 'Exemple Name 1'
-                    chatDescription = 'exemple very long description 1 very long description 1 exemple very long description 1 exemple very long description 1 exemple very long description 1'
-                    chatImg = {chatIcon}
-                    patch = 'Exemple Name 1'
-                />   
+                 {renderChatList}
             </div>
             <Navigation/>
             
@@ -27,4 +43,8 @@ const MainPage = () => {
     )
 }
 
-export default MainPage
+const mapStateToProps = createStructuredSelector({
+    chatList: selectChatList
+})
+
+export default connect(mapStateToProps, {asyncGetChatList})(MainPage)

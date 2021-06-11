@@ -18,14 +18,16 @@ const AutogrowTextarea = ({currentUser}) => {
 	}
 
 	const sendMessege = async () => {
-		console.log(textAreaValue)
-		firestore.collection(`${chatRoomName}`).add({
-			uid: currentUser.uid,
-			displayName: currentUser.displayName,
-			photoURL: currentUser.photoURL,
-			text: textAreaValue,
-			createdAt: firebase.firestore.FieldValue.serverTimestamp()
-		})
+		if(textAreaValue){
+			firestore.collection(`${chatRoomName}`).add({
+				uid: currentUser.uid,
+				displayName: currentUser.displayName,
+				photoURL: currentUser.photoURL,
+				text: textAreaValue,
+				createdAt: firebase.firestore.FieldValue.serverTimestamp()
+			})
+		}
+		setTextAreaValue('')
 	}
 
 	return (
