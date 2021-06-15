@@ -17,13 +17,14 @@ const MainPage = ({chatList, asyncGetChatList }) => {
 
     if (!chatList) return <p>loading</p>
 
-    const renderChatList = chatList.map( (chat) => {
+    const renderChatList = chatList.map( (chat, indx) => {
         return(
             <ChatRoomItem
                     chatName = {chat.name}
                     chatDescription = {chat.description}
                     chatImg = {chat.imageUrl||chatIcon}
                     patch = {chat.name}
+                    key = {`${indx}jkdjndki`}
             />    
         )
     })

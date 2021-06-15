@@ -64,7 +64,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     type ='email'
                     value ={loginData.email}
                     handleChainge = {handleChaingeLogin}
-                    placeHolder ='email'
+                    placeholder ='email'
                     required
                 />
                 <FormInput
@@ -72,7 +72,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     type ='password'
                     value = {loginData.password}
                     handleChainge = {handleChaingeLogin}
-                    placeHolder ='password'
+                    placeholder ='password'
                     required
                 />
                 <CustomButton 
@@ -89,7 +89,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='displayName'
                     value={displayName}
                     onChange={handleChange}
-                    placeHolder='Display Name'
+                    placeholder='Display Name'
                     required
                 />
                 <FormInput
@@ -97,7 +97,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='email'
                     value={email}
                     onChange={handleChange}
-                    placeHolder='Email'
+                    placeholder='Email'
                     required
                 />
                 <FormInput
@@ -105,7 +105,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='password'
                     value={password}
                     onChange={handleChange}
-                    placeHolder='Password'
+                    placeholder='Password'
                     required
                 />
                 <FormInput
@@ -113,7 +113,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
                     name='confirmPassword'
                     value={confirmPassword}
                     onChange={handleChange}
-                    placeHolder='Confirm Password'
+                    placeholder='Confirm Password'
                     required
                 />
                 <CustomButton 

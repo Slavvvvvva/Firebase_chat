@@ -1,35 +1,48 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useHistory, useParams } from 'react-router'
 import AutogrowTextarea from '../../components/AutogrowTextarea/AutogrowTextarea'
 import Message from '../../components/Messages/Message'
 import chatRoomStyle from './chat-room-page.module.scss'
-import {firestore} from '../../Firebase/firebase'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
+import {acyncGetMesege} from '../../Redux/chatroom/chatroom-actions'
 import {selectCurrentUser} from '../../Redux/user/user-selector'
+import {selectMessege} from '../../Redux/chatroom/chatroom-selectors'
 import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
 
 
-const ChatRoomPage = ({currentUser}) => {
+const ChatRoomPage = ({currentUser, message, acyncGetMesege, chatRoomDescription}) => {
 
     const {chatRoomName} = useParams()
     const history = useHistory()
-    console.log(history)
-    const chatRoomDescription = 'some  description'
 
-	const [messages, loading] = useCollectionData(
-		firestore.collection(`${chatRoomName}`).orderBy('createdAt')
-	)
+    const autoscrollDiv = useRef(null)
+    const autoscroll = (options) => {
+        autoscrollDiv.current?.scrollIntoView(options)
+    }
+    
+    useEffect( () => {
+        acyncGetMesege(chatRoomName)
+    },[acyncGetMesege, chatRoomName])
 
-    console.log(messages)
-    if(loading) return (<p>Loading</p>)
+    useEffect(() => {
+        autoscroll({ behavior: "auto" })
+    }, []);
 
-    const renderMeseges = messages.map( (mesItem, index) => {
+    useEffect(() => {
+        autoscroll({ behavior: "smooth" })
+    }, [message]);
+
+   
+
+    if(!message) return (<p>Loading</p>)
+
+    const renderMeseges = message.map( (mesItem, index) => {
         
         return(
             <Message
                 notYour = {!(mesItem.uid === currentUser.uid )}
-                time ={mesItem.createdAt.toDate().toLocaleTimeString('it-IT')}
+                time ={(mesItem.createdAt )? mesItem.createdAt.toDate().toLocaleTimeString('it-IT') : null}
+                key = {`${index}kll`}
             >
                 {mesItem.text}
             </Message>
@@ -49,6 +62,7 @@ const ChatRoomPage = ({currentUser}) => {
             </div>
             <div className = {chatRoomStyle.message_vrapper}>
                 {renderMeseges}
+                <div ref = {autoscrollDiv}></div>
             </div>
             <div className = {chatRoomStyle.input_vrapper}>
                 <AutogrowTextarea/>
@@ -58,7 +72,8 @@ const ChatRoomPage = ({currentUser}) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser
+    currentUser: selectCurrentUser,
+    message: selectMessege,
   })
   
-export default connect(mapStateToProps, {})(ChatRoomPage)
+export default connect(mapStateToProps, {acyncGetMesege})(ChatRoomPage)

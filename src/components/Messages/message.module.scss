@@ -30,9 +30,10 @@
     .name{
         position: absolute;
         margin: 0;
-        font-size: 13px;
+        font-size: 14px;
         right: 90px;
         top: 5px;
+        color: rgb(180, 200, 206);
     }
 }
 
@@ -56,6 +57,7 @@
     .not_your_name{
         right: initial ;
         left: 90px;
+        color: rgb(44, 74, 243);
     }
 
 }

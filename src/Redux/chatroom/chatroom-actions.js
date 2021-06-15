@@ -12,6 +12,12 @@ export const setAsyncMessages = message => ({
     payload: message
 })
 
+export const setUserMeseges = message => ({
+    type: ChatroomAcitonTypes.SET_MESEGES,
+    payload: message
+})
+
+
 export const asyncCeateNewChatroom = ({name, description, imageUrl}) => {
     return (dispatch) => {
         firestore.collection(`ChatList`).add({
@@ -54,4 +60,18 @@ export const asyncSendMesege = (chatRoomName, currentUser, textAreaValue ) => {
                 dispatch(setAsyncMessages(errorCode+''+errorMessage))
         })
     }
+}
+
+export const acyncGetMesege = (chatRoomName) => {
+    return (dispatch) => {
+        firestore.collection(`${chatRoomName}`).orderBy('createdAt')
+            .onSnapshot( (querySnapshot) => {
+                let meseges = [];
+                querySnapshot.forEach((doc) => {
+                    if (doc.metadata.hasPendingWrites === "Local") return
+                    return  meseges.push(doc.data())
+                })
+                dispatch(setUserMeseges(meseges))
+            })
+        }
 }

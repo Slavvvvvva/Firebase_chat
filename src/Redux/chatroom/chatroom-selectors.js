@@ -11,3 +11,8 @@ export const selectChatList = createSelector(
     [selectChat],
     (chat) => chat.chatList
 )
+
+export const selectMessege = createSelector(
+    [selectChat],
+    (chat) => chat.message
+)
