@@ -18,8 +18,9 @@ const AutogrowTextarea = ({currentUser, asyncSendMesege, errorMesege}) => {
 	}
 
 	const sendMessege = async () => {
-		if(textAreaValue){
-			asyncSendMesege(chatRoomName, currentUser, textAreaValue)
+		let value = textAreaValue.replace(/\s+/g, " ")
+		if(value && (value !== " ") ){
+			asyncSendMesege(chatRoomName, currentUser, value)
 		}
 		setTextAreaValue('')
 	}
