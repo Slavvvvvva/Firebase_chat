@@ -37,11 +37,11 @@ const ChatRoomPage = ({currentUser, message, acyncGetMesege, chatRoomDescription
     if(!message) return (<p>Loading</p>)
 
     const renderMeseges = message.map( (mesItem, index) => {
-        
         return(
             <Message
                 notYour = {!(mesItem.uid === currentUser.uid )}
                 time ={(mesItem.createdAt )? mesItem.createdAt.toDate().toLocaleTimeString('it-IT') : null}
+                name = {mesItem.displayName||mesItem.email}
                 key = {`${index}kll`}
             >
                 {mesItem.text}

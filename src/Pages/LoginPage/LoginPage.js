@@ -27,7 +27,6 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
     }
 
     let [signUpData, setSignUpData] = useState({
-        displayName: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -36,7 +35,6 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
     const handleSubmit = async e => {
         debugger
         e.preventDefault()
-        console.log(signUpData)
         const { password, confirmPassword } = signUpData
 
         if (password !== confirmPassword) {
@@ -52,7 +50,7 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
         setSignUpData({ ...signUpData, [name]: value })
     }
 
-    const { displayName, email, password, confirmPassword } = signUpData
+    const { email, password, confirmPassword } = signUpData
 
     return (
         <div className={loginPageStyle.login_vrapper} >
@@ -84,14 +82,6 @@ const LoginPage = ({asyncCeateAndSetCurrentUser, asyncLoginAndSetCurrentUser}) =
             <form onSubmit={handleSubmit} className = {`${loginPageStyle.login_form} ${loginPageStyle.login_form_crete } `}>
                 <h2 className={loginPageStyle.title}>Or</h2>
                 <span className={loginPageStyle.description} > Create new acaunt with email and password </span>
-                <FormInput
-                    type='text'
-                    name='displayName'
-                    value={displayName}
-                    onChange={handleChange}
-                    placeholder='Display Name'
-                    required
-                />
                 <FormInput
                     type='email'
                     name='email'

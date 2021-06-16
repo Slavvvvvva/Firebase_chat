@@ -51,6 +51,7 @@ export const asyncSendMesege = (chatRoomName, currentUser, textAreaValue ) => {
         firestore.collection(`${chatRoomName}`).add({
             uid: currentUser.uid,
             displayName: currentUser.displayName,
+            email: currentUser.email,
             photoURL: currentUser.photoURL,
             text: textAreaValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
