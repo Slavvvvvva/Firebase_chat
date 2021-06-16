@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Firebase_chat/static/css/main.ddabc4e4.chunk.css",
+    "main.js": "/Firebase_chat/static/js/main.0fba37c3.chunk.js",
+    "main.js.map": "/Firebase_chat/static/js/main.0fba37c3.chunk.js.map",
+    "runtime-main.js": "/Firebase_chat/static/js/runtime-main.aa9fe764.js",
+    "runtime-main.js.map": "/Firebase_chat/static/js/runtime-main.aa9fe764.js.map",
+    "static/js/2.79796f9f.chunk.js": "/Firebase_chat/static/js/2.79796f9f.chunk.js",
+    "static/js/2.79796f9f.chunk.js.map": "/Firebase_chat/static/js/2.79796f9f.chunk.js.map",
+    "static/js/3.0efb20d1.chunk.js": "/Firebase_chat/static/js/3.0efb20d1.chunk.js",
+    "static/js/3.0efb20d1.chunk.js.map": "/Firebase_chat/static/js/3.0efb20d1.chunk.js.map",
+    "index.html": "/Firebase_chat/index.html",
+    "static/css/main.ddabc4e4.chunk.css.map": "/Firebase_chat/static/css/main.ddabc4e4.chunk.css.map",
+    "static/js/2.79796f9f.chunk.js.LICENSE.txt": "/Firebase_chat/static/js/2.79796f9f.chunk.js.LICENSE.txt",
+    "static/media/mainPage.module.scss": "/Firebase_chat/static/media/headerBackground.4053cdaf.svg",
+    "static/media/chat.fc2014b3.svg": "/Firebase_chat/static/media/chat.fc2014b3.svg",
+    "static/media/chats.63b19f5e.svg": "/Firebase_chat/static/media/chats.63b19f5e.svg",
+    "static/media/iconfinder_user-alt_285645.75fdf75c.svg": "/Firebase_chat/static/media/iconfinder_user-alt_285645.75fdf75c.svg",
+    "static/media/chat-room-page.module.scss": "/Firebase_chat/static/media/leftArrow.453bee6f.svg",
+    "static/media/create_page.module.scss": "/Firebase_chat/static/media/loginBackground.b5cbfce3.svg",
+    "static/media/profile.6d853f3a.svg": "/Firebase_chat/static/media/profile.6d853f3a.svg",
+    "static/media/autogrow-textarea.module.scss": "/Firebase_chat/static/media/semdButton.fcd0cdc5.svg",
+    "static/media/settings.2f5cad20.svg": "/Firebase_chat/static/media/settings.2f5cad20.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa9fe764.js",
+    "static/js/2.79796f9f.chunk.js",
+    "static/css/main.ddabc4e4.chunk.css",
+    "static/js/main.0fba37c3.chunk.js"
+  ]
+}
