@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Firebase_chat/static/css/main.ddabc4e4.chunk.css",
-    "main.js": "/Firebase_chat/static/js/main.0fba37c3.chunk.js",
-    "main.js.map": "/Firebase_chat/static/js/main.0fba37c3.chunk.js.map",
+    "main.js": "/Firebase_chat/static/js/main.f09ba395.chunk.js",
+    "main.js.map": "/Firebase_chat/static/js/main.f09ba395.chunk.js.map",
     "runtime-main.js": "/Firebase_chat/static/js/runtime-main.aa9fe764.js",
     "runtime-main.js.map": "/Firebase_chat/static/js/runtime-main.aa9fe764.js.map",
     "static/js/2.79796f9f.chunk.js": "/Firebase_chat/static/js/2.79796f9f.chunk.js",
@@ -26,6 +26,6 @@
     "static/js/runtime-main.aa9fe764.js",
     "static/js/2.79796f9f.chunk.js",
     "static/css/main.ddabc4e4.chunk.css",
-    "static/js/main.0fba37c3.chunk.js"
+    "static/js/main.f09ba395.chunk.js"
   ]
 }
